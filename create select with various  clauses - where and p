@@ -1,0 +1,54 @@
+mysql> create database cricket;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use cricket;
+Database changed
+mysql> create table players(Name char(20) NOT NULL UNIQUE, id int(6), Age int(2) NOT NULL UNIQUE, primary key(id));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc players;
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| Name  | char(20) | NO   | UNI | NULL    |       |
+| id    | int(6)   | NO   | PRI | 0       |       |
+| Age   | int(2)   | NO   | UNI | NULL    |       |
++-------+----------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> insert into players value('P.Manoj', 123465, 19);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into players value('C.Mithil_yash', 133342, 28);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into players value('S.Varthik', 122254, 21);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into players value('P.Saketh', 134256, 18);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into players value('J.Mahesh', 154211, 22);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select *from players;
++---------------+--------+-----+
+| Name          | id     | Age |
++---------------+--------+-----+
+| S.Varthik     | 122254 |  21 |
+| P.Manoj       | 123465 |  19 |
+| C.Mithil_yash | 133342 |  28 |
+| P.Saketh      | 134256 |  18 |
+| J.Mahesh      | 154211 |  22 |
++---------------+--------+-----+
+5 rows in set (0.02 sec)
+
+mysql> select *from players where (Age>=20);
++---------------+--------+-----+
+| Name          | id     | Age |
++---------------+--------+-----+
+| S.Varthik     | 122254 |  21 |
+| C.Mithil_yash | 133342 |  28 |
+| J.Mahesh      | 154211 |  22 |
++---------------+--------+-----+
+3 rows in set (0.00 sec)
